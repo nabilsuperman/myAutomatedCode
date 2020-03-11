@@ -5,9 +5,12 @@ import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,7 +21,7 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 import sanityTests.Xls_Reader;
 
 public class miscellaneousTests {
-	
+
 	WebDriver driver;
 	Robot robot;
 	int threeSecs = 3000;
@@ -45,7 +48,7 @@ public class miscellaneousTests {
 		ngWebDriver = new NgWebDriver((JavascriptExecutor) driver);
 
 	}
-	
+
 	@Test(priority = 1, description = "This test will log in as the Patient account")
 	public void PatientLogin() {
 		driver.get(URL);
@@ -75,8 +78,7 @@ public class miscellaneousTests {
 		System.out.println("You have successfully logged in as the patient");
 	}
 
-
-	@Test(priority=2, dependsOnMethods="PatientLogin", description="This Test will click on the following buttons on the main Page: Home, Videocall, chat, groups, notifications, settings, account icon" )
+	@Test(priority = 2, dependsOnMethods = "PatientLogin", description = "This Test will click on the following buttons on the main Page: Home, Videocall, chat, groups, notifications, settings, account icon")
 	public void buttonFunctionality() {
 		PatientLogin();
 		// clicking home
@@ -118,7 +120,6 @@ public class miscellaneousTests {
 
 		// clicking the back arrow
 
-
 		driver.findElement(ByAngularOptions.xpath(
 				"(//*[@class='glb-header-button-transparent glb-padding-inherit--positioning bar-button bar-button-md bar-button-default bar-button-default-md'])[1]"))
 				.click();
@@ -126,11 +127,44 @@ public class miscellaneousTests {
 
 		driver.findElement(ByAngularOptions.xpath("//*[@name='home']")).click();
 		robot.delay(threeSecs);
-
-
-	
-	
-	}
 	}
 
+	@Test(priority = 3, description = "Create a new userAccount")
+	public void wallPost() {
 
+		String URL = "https://healable-acptfront.herokuapp.com/";
+		driver.manage().window().maximize();
+		ngWebDriver.waitForAngularRequestsToFinish();
+		robot.delay(threeSecs);
+		for (int a = 100; a < 102; a++) {
+			driver.get(URL);
+			robot.delay(sevenSecs);
+			driver.findElement(ByAngularOptions.xpath(
+					"//*[@id='signup' and @class='button button-md button-default button-default-md button-full button-full-md']"))
+					.click();
+			robot.delay(threeSecs);
+
+			// Enter an EMAIL ADDRESS
+			driver.findElement(ByAngularOptions.xpath("(//*[@formcontrolname='email'])[2]")).click();
+			ac.sendKeys("pat" + a + "@pat.com").build().perform();
+			// break;
+
+			ac.sendKeys(Keys.TAB).build().perform();
+			ac.sendKeys("Healing123!").build().perform();
+			ac.sendKeys(Keys.TAB).build().perform();
+			ac.sendKeys(Keys.TAB).build().perform();
+
+			ac.sendKeys(Keys.ENTER).build().perform();
+			ac.sendKeys(Keys.TAB).build().perform();
+
+			ac.sendKeys(Keys.ENTER).build().perform();
+			robot.delay(sevenSecs);
+		}
+	}
+
+	@AfterMethod
+	public void tearDown() {
+		driver.close();
+	}
+
+}

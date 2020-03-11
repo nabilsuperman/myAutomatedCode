@@ -17,6 +17,7 @@ public class PatChat {
 
 	public static void main(String[] args) throws AWTException {
 		// TODO Auto-generated method stub
+		
 		//Patient will msg the doctor
 		
 		
@@ -73,7 +74,6 @@ public class PatChat {
         robot.delay(sevenSecs);
   //-------------------------------------------------------------------------------------------------------------------------      
         //clickChat
-        //driver.findElement(ByAngularOptions.xpath("/html/body/ion-app/ng-component/ion-nav/page-wall/ion-tabs/ion-tab[1]/page-home/ion-header/span/ion-grid/ion-row/ion-col[3]/div/div[3]/ion-icon")).click();
         driver.findElement(ByAngularOptions.xpath("//*[@name='chatbubbles']")).click();robot.delay(threeSecs);
 
         robot.delay(sevenSecs);
@@ -86,11 +86,13 @@ public class PatChat {
         driver.findElement(ByAngularOptions.id("chatTyped")).click();
         robot.delay(threeSecs);
         String PatMsg = reader.getCellData("Chat", "PatMsg", rowNum);
-        for(int j=1; j<10; j++) {
+        
         ac.sendKeys(PatMsg).build().perform();
-        }
+        
         ac.sendKeys(Keys.ENTER).build().perform();
-        robot.delay(threeSecs);
+        robot.delay(sevenSecs);
+        String msg = driver.findElement(ByAngularOptions.xpath("(//*[@class='msg-content' and @id='msgBody'])[15]")).getText();
+        System.out.println(msg);
    
         System.out.println("Test has passed");
 

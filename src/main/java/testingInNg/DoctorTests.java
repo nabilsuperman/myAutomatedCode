@@ -1,5 +1,7 @@
 package testingInNg;
 
+import static org.testng.Assert.assertEquals;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
@@ -80,19 +82,25 @@ public class DoctorTests {
 	@Test(priority=2,dependsOnMethods="doctorLogin", description = "This test will click on chat feature and send a message to the patient.")
 	public void sendMsgToPatient() {
 		doctorLogin();
-		// clickChat
-		driver.findElement(ByAngularOptions.xpath("//*[@name='chatbubbles']")).click();
+        //clickChat
+		   driver.findElement(ByAngularOptions.xpath("//*[@name='chatbubbles']")).click();
 
-		robot.delay(threeSecs);
-		driver.findElement(ByAngularOptions.xpath("//*[@class='midCol col']")).click();
-		robot.delay(threeSecs);
-		// click Msg Box
-		driver.findElement(ByAngularOptions.id("chatTyped")).click();
-		robot.delay(threeSecs);
-		String DocMsg = reader.getCellData("Chat", "DocMsg", rowNum);
-		ac.sendKeys(DocMsg).build().perform();
-		ac.sendKeys(Keys.ENTER).build().perform();
-		robot.delay(sevenSecs);
+        robot.delay(threeSecs);
+        //---------------------------------------------------------------------------------------------------------------------
+        driver.findElement(ByAngularOptions.xpath("//*[@class='midCol col']")).click();
+        robot.delay(threeSecs);
+        //click Msg Box
+        driver.findElement(ByAngularOptions.id("chatTyped")).click();
+        robot.delay(threeSecs);
+        String DocMsg = reader.getCellData("Chat", "DocMsg", rowNum);
+        ac.sendKeys(DocMsg + "i am le tiger").build().perform();
+        ac.sendKeys(Keys.ENTER).build().perform();
+        robot.delay(sevenSecs);
+        String msg = driver.findElement(ByAngularOptions.xpath("(//*[@class='msg-content' and @id='msgBody'])[15]")).getText();
+        System.out.println(msg);
+        //-----------------------------------------------------------------------------------------------------------------------    
+    
+        System.out.println("Test has passed, Doctor account successfully sent a message to the patient");
 	}
 
 	@Test(priority=3,dependsOnMethods="doctorLogin", description = "This will test the functionality of the create case feature available to the physicians")
@@ -102,12 +110,12 @@ public class DoctorTests {
 		WebElement createCase = driver.findElement(ByAngularOptions.xpath(
 				"//*[@id='newCase'] |(//*[@class='buttonClass button-case glb-font-16--typography button button-md button-clear button-clear-md'])[1]"));
 		createCase.click();
-		robot.delay(sevenSecs);
+		robot.delay(threeSecs);
 		// Case Title click
 		driver.findElement(ByAngularOptions.xpath("(//*[@formcontrolname='caseTitle'])[2]")).click();
 		String casetitl = reader.getCellData("Chat", "caseTitle", rowNum);
 		ac.sendKeys(casetitl).build().perform();
-		robot.delay(sevenSecs);
+		robot.delay(threeSecs);
 		System.out.println("Case Extract");
 		driver.findElement(ByAngularOptions.xpath("(//*[@formcontrolname='extract'])[2]")).click();
 		String xtract = reader.getCellData("Chat", "caseExtract", rowNum);
@@ -122,12 +130,19 @@ public class DoctorTests {
 		ac.sendKeys(Keys.TAB).build().perform();
 		ac.sendKeys(Keys.ENTER).build().perform();
 
+		// Saving
 		driver.findElement(ByAngularOptions.xpath(
 				"//*[@class='glb-header-button-transparent glb-header-color bar-button bar-button-md bar-button-default bar-button-default-md']"))
 				.click();
 		robot.delay(sevenSecs);
 		driver.findElement(ByAngularOptions.xpath("//*[@id='discoverGroup']")).click();
-		System.out.println("the test has executed successfully");
+		robot.delay(sevenSecs);
+		String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='HomeWallLayout'])[1]")).getText();
+
+		System.out.println(hi);
+
+
+
 	}
 		@AfterMethod
 		public void tearDown() {

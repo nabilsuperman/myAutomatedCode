@@ -84,8 +84,9 @@ public class PatientTests {
 
 	@Test(priority = 2, dependsOnMethods = "PatientLogin", description = "Login, and send a message to the doctor using the chat feature")
 	public void sendChatToDoctor() {
-		
+
 		PatientLogin();
+		// clickChat
 		driver.findElement(ByAngularOptions.xpath("//*[@name='chatbubbles']")).click();
 		robot.delay(threeSecs);
 
@@ -99,15 +100,20 @@ public class PatientTests {
 		driver.findElement(ByAngularOptions.id("chatTyped")).click();
 		robot.delay(threeSecs);
 		String PatMsg = reader.getCellData("Chat", "PatMsg", rowNum);
+
 		ac.sendKeys(PatMsg).build().perform();
 
 		ac.sendKeys(Keys.ENTER).build().perform();
-		robot.delay(threeSecs);
+		robot.delay(sevenSecs);
+		String msg = driver.findElement(ByAngularOptions.xpath("(//*[@class='msg-content' and @id='msgBody'])[15]"))
+				.getText();
+		System.out.println(msg);
 
 		System.out.println("Chat successfull sent to the doctor");
 
 	}
-	@Test(priority=3, dependsOnMethods="PatientLogin", description="Login to the patient account and Upload profile picutre")
+
+	@Test(priority = 3, dependsOnMethods = "PatientLogin", description = "Login to the patient account and Upload profile picutre")
 	public void upLoadPicture() {
 		PatientLogin();
 
@@ -135,42 +141,50 @@ public class PatientTests {
 		robot.keyRelease(KeyEvent.VK_V);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.setAutoDelay(threeSecs);
-		
+
 		robot.delay(sevenSecs);
 		driver.findElement(ByAngular.buttonText("Save")).click();
 	}
-		@Test(priority=4, dependsOnMethods="PatientLogin",description="Login to the patient account and make a post on your wall")
-		public void wallPost() {
-			PatientLogin();
-			// Click on Create Post
 
-			driver.findElement(ByAngularOptions.cssSelector("#share")).click();
-			robot.delay(threeSecs);
-			// Write your thoughts (needs to be clicked).
-			driver.findElement(ByAngularOptions.xpath("//textarea[@formcontrolname='thoughts']")).click();
+	@Test(priority = 4, dependsOnMethods = "PatientLogin", description = "Login to the patient account and make a post on your wall")
+	public void wallPost() {
+		PatientLogin();
+		// Click on Create Post
 
-			String ChatMsg = reader.getCellData("Chat", "WallMsg", rowNum);
-			ac.sendKeys(ChatMsg).build().perform();
-			robot.delay(threeSecs);
+		driver.findElement(ByAngularOptions.cssSelector("#share")).click();
+		robot.delay(threeSecs);
+		// -----------------------------------------------------------------------
+		// Write your thoughts (needs to be clicked).
+		driver.findElement(ByAngularOptions.xpath("//textarea[@formcontrolname='thoughts']")).click();
 
-			// Click Save
+		String ChatMsg = reader.getCellData("Chat", "WallMsg", rowNum);
+		ac.sendKeys(ChatMsg).build().perform();
+		robot.delay(threeSecs);
+		
+		// ------------------------------------------------------------------------------------------------
 
-			driver.findElement(ByAngularOptions.xpath(
-					"//*[@class='glb-header-button-transparent glb-header-color bar-button bar-button-md bar-button-default bar-button-default-md']"))
-					.click();
+		// Click Save
 
-			robot.delay(sevenSecs);
+		driver.findElement(ByAngularOptions.xpath(
+				"//*[@class='glb-header-button-transparent glb-header-color bar-button bar-button-md bar-button-default bar-button-default-md']"))
+				.click();
 
-			// Clicking no i am done
+		robot.delay(sevenSecs);
+		
+		// Clicking no i am done
 
 
-			driver.findElement(ByAngularOptions.xpath(
-					"//*[@id='discoverGroup' and @class='glb-label--typography button button-md button-clear button-clear-md']"))
-					.click();
-			System.out.println("Test Successfull");
+		driver.findElement(ByAngularOptions.xpath(
+				"//*[@id='discoverGroup' and @class='glb-label--typography button button-md button-clear button-clear-md']"))
+				.click();
+		robot.delay(sevenSecs);
+		//String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='layout col'])[2]")).getText();
+		String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='card-content card-content-md'])[1]")).getText();
 
-		}
-	
+		System.out.println(hi);
+
+	}
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();

@@ -79,10 +79,11 @@ public class ChatDocAndPat {
            driver.findElement(ByAngularOptions.id("chatTyped")).click();
            robot.delay(threeSecs);
            String DocMsg = reader.getCellData("Chat", "DocMsg", rowNum);
-           ac.sendKeys(DocMsg).build().perform();
+           ac.sendKeys(DocMsg + "i am le tiger").build().perform();
            ac.sendKeys(Keys.ENTER).build().perform();
            robot.delay(sevenSecs);
-           
+           String msg = driver.findElement(ByAngularOptions.xpath("(//*[@class='msg-content' and @id='msgBody'])[15]")).getText();
+           System.out.println(msg);
            //-----------------------------------------------------------------------------------------------------------------------    
        
            System.out.println("Test has passed, Doctor account successfully sent a message to the patient");

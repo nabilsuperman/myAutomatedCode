@@ -1,5 +1,8 @@
 package sanityTests;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 
@@ -65,7 +68,6 @@ public class ButtonFunctionalityTest {
 		// clicking home
 		driver.findElement(ByAngularOptions.xpath("//*[@name='home']")).click();
 		robot.delay(threeSecs);
-
 		// clicking VideoCall
 		driver.findElement(ByAngularOptions.xpath("//*[@name='videocam']")).click();
 		robot.delay(threeSecs);

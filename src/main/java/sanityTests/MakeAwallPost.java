@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.ByAngularOptions;
@@ -20,7 +21,6 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 public class MakeAwallPost {
 
 	public static void main(String[] args) throws AWTException {
-		// TODO Auto-generated method stub
 		// Make a wall Post on Healable.
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nabil\\\\OneDrive\\Documents\\chromedriver.exe");
@@ -78,6 +78,7 @@ public class MakeAwallPost {
 		String ChatMsg = reader.getCellData("Chat", "WallMsg", rowNum);
 		ac.sendKeys(ChatMsg).build().perform();
 		robot.delay(threeSecs);
+		
 		// ------------------------------------------------------------------------------------------------
 
 		// Click Save
@@ -87,16 +88,24 @@ public class MakeAwallPost {
 				.click();
 
 		robot.delay(sevenSecs);
-
+		
 		// Clicking no i am done
 
 
 		driver.findElement(ByAngularOptions.xpath(
 				"//*[@id='discoverGroup' and @class='glb-label--typography button button-md button-clear button-clear-md']"))
 				.click();
+		robot.delay(sevenSecs);
+		//String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='layout col'])[2]")).getText();
+		String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='card-content card-content-md'])[1]")).getText();
+
+		System.out.println(hi);
+		System.out.println("------------------------------------------------------------------------------------");
+
+		System.out.println("done");
+
+
 		//System.out.println("Test Successfull");
-			assertEquals(ChatMsg, ChatMsg);
-			
 		
 			
 		

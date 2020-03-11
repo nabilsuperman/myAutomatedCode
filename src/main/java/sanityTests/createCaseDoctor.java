@@ -97,6 +97,11 @@ public class createCaseDoctor {
 				.click();
 		robot.delay(sevenSecs);
 		driver.findElement(ByAngularOptions.xpath("//*[@id='discoverGroup']")).click();
+		robot.delay(sevenSecs);
+		String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='HomeWallLayout'])[1]")).getText();
+
+		System.out.println(hi);
+
 		System.out.println("the test has executed successfully");
 	}
 
