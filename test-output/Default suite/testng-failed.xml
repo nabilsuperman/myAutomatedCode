@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testingInNg.PatientTests">
+      <class name="testingInNg.DoctorToPatient">
         <methods>
-          <include name="wallPost"/>
-          <include name="tearDown"/>
-          <include name="upLoadPicture"/>
           <include name="setUp"/>
-          <include name="PatientLogin"/>
+          <include name="doctorLogin"/>
+          <include name="PatientLoginMsg"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- testingInNg.PatientTests -->
+      </class> <!-- testingInNg.DoctorToPatient -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

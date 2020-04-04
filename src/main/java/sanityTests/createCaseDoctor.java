@@ -3,6 +3,7 @@ package sanityTests;
 import java.awt.AWTException;
 import java.awt.Robot;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -59,7 +60,6 @@ public class createCaseDoctor {
 		String Password = reader.getCellData("Chat", "passWordDoc", rowNum);
 		System.out.println("password is" + Password);
 		ac.sendKeys(Password).build().perform();
-
 		// clicking login button
 		driver.findElement(ByAngular.buttonText("Log In")).click();
 		robot.delay(sevenSecs);
@@ -98,9 +98,9 @@ public class createCaseDoctor {
 		robot.delay(sevenSecs);
 		driver.findElement(ByAngularOptions.xpath("//*[@id='discoverGroup']")).click();
 		robot.delay(sevenSecs);
-		String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='HomeWallLayout'])[1]")).getText();
+		//String hi =driver.findElement(ByAngularOptions.xpath("(//*[@class='HomeWallLayout'])[1]")).getText();
 
-		System.out.println(hi);
+		//System.out.println(hi);
 
 		System.out.println("the test has executed successfully");
 	}

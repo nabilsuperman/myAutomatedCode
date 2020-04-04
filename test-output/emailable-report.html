@@ -8,13 +8,137 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">195,573</td><td></td><td></td></tr>
+<tr><th colspan="7">Suite</th></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num attn">3</td><td class="num">0</td><td class="num">0</td><td class="num">20,469</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">testingInNg.miscellaneousTests</td><td><a href="#m0">PatientLogin</a></td><td rowspan="1">1583942494930</td><td rowspan="1">38275</td></tr><tr class="passedeven"><td><a href="#m1">buttonFunctionality</a></td><td rowspan="1">1583942542674</td><td rowspan="1">64786</td></tr><tr class="passedeven"><td><a href="#m2">wallPost</a></td><td rowspan="1">1583942614926</td><td rowspan="1">61540</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">testingInNg.DoctorTests</td><td><a href="#m0">setUp</a></td><td rowspan="1">1585375890186</td><td rowspan="1">20284</td></tr><tr><th colspan="4">Test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">testingInNg.DoctorTests</td><td><a href="#m1">tearDown</a></td><td rowspan="1">1585375910530</td><td rowspan="1">-1585375910530</td></tr><tr><th colspan="4">Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="3">testingInNg.DoctorTests</td><td><a href="#m2">createCase</a></td><td rowspan="1">1585375910551</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m3">doctorLogin</a></td><td rowspan="1">1585375910500</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m4">sendMsgToPatient</a></td><td rowspan="1">1585375910544</td><td rowspan="1">0</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">testingInNg.miscellaneousTests#PatientLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testingInNg.miscellaneousTests#buttonFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testingInNg.miscellaneousTests#wallPost</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">testingInNg.DoctorTests#setUp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: session not created
+from chrome not reachable
+  (Session info: chrome=80.0.3987.149)
+Build info: version: &apos;4.0.0-alpha-4&apos;, revision: &apos;c2d955b49e&apos;
+System info: host: &apos;LAPTOP-6PF3SGRJ&apos;, ip: &apos;192.168.1.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;13.0.1&apos;
+Driver info: driver.version: ChromeDriver
+remote stacktrace: Backtrace:
+	Ordinal0 [0x003CA113+1548563]
+	Ordinal0 [0x0034DDA1+1039777]
+	Ordinal0 [0x002CE32E+516910]
+	Ordinal0 [0x002C8012+491538]
+	Ordinal0 [0x002C86EB+493291]
+	Ordinal0 [0x002C9855+497749]
+	Ordinal0 [0x002C5885+481413]
+	Ordinal0 [0x002CF0D0+520400]
+	Ordinal0 [0x0027C030+180272]
+	Ordinal0 [0x0027B59D+177565]
+	Ordinal0 [0x002795FB+169467]
+	Ordinal0 [0x0026160A+71178]
+	Ordinal0 [0x00262690+75408]
+	Ordinal0 [0x00262629+75305]
+	Ordinal0 [0x003671B7+1143223]
+	GetHandleVerifier [0x00462B46+507814]
+	GetHandleVerifier [0x00462864+507076]
+	GetHandleVerifier [0x00469F47+537511]
+	GetHandleVerifier [0x00463402+510050]
+	Ordinal0 [0x0035F29C+1110684]
+	Ordinal0 [0x0036938B+1151883]
+	Ordinal0 [0x003694F3+1152243]
+	Ordinal0 [0x003683F5+1147893]
+	BaseThreadInitThunk [0x75606359+25]
+	RtlGetAppContainerNamedObjectPath [0x77177B74+228]
+	RtlGetAppContainerNamedObjectPath [0x77177B44+180]
+
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:126)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:136)
+	at org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:105)
+	at testingInNg.DoctorTests.setUp(DoctorTests.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1507)
+... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testingInNg.DoctorTests#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testingInNg.DoctorTests#createCase</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method DoctorTests.createCase()[pri:3, instance:testingInNg.DoctorTests@7be1ce6a] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1507)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testingInNg.DoctorTests#doctorLogin</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: session not created
+from chrome not reachable
+  (Session info: chrome=80.0.3987.149)
+Build info: version: &apos;4.0.0-alpha-4&apos;, revision: &apos;c2d955b49e&apos;
+System info: host: &apos;LAPTOP-6PF3SGRJ&apos;, ip: &apos;192.168.1.10&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;13.0.1&apos;
+Driver info: driver.version: ChromeDriver
+remote stacktrace: Backtrace:
+	Ordinal0 [0x003CA113+1548563]
+	Ordinal0 [0x0034DDA1+1039777]
+	Ordinal0 [0x002CE32E+516910]
+	Ordinal0 [0x002C8012+491538]
+	Ordinal0 [0x002C86EB+493291]
+	Ordinal0 [0x002C9855+497749]
+	Ordinal0 [0x002C5885+481413]
+	Ordinal0 [0x002CF0D0+520400]
+	Ordinal0 [0x0027C030+180272]
+	Ordinal0 [0x0027B59D+177565]
+	Ordinal0 [0x002795FB+169467]
+	Ordinal0 [0x0026160A+71178]
+	Ordinal0 [0x00262690+75408]
+	Ordinal0 [0x00262629+75305]
+	Ordinal0 [0x003671B7+1143223]
+	GetHandleVerifier [0x00462B46+507814]
+	GetHandleVerifier [0x00462864+507076]
+	GetHandleVerifier [0x00469F47+537511]
+	GetHandleVerifier [0x00463402+510050]
+	Ordinal0 [0x0035F29C+1110684]
+	Ordinal0 [0x0036938B+1151883]
+	Ordinal0 [0x003694F3+1152243]
+	Ordinal0 [0x003683F5+1147893]
+	BaseThreadInitThunk [0x75606359+25]
+	RtlGetAppContainerNamedObjectPath [0x77177B74+228]
+	RtlGetAppContainerNamedObjectPath [0x77177B44+180]
+
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
+	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$1(ProtocolHandshake.java:126)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:139)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:136)
+	at org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:75)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:163)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:150)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:105)
+	at testingInNg.DoctorTests.setUp(DoctorTests.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1507)
+... Removed 36 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testingInNg.DoctorTests#sendMsgToPatient</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method DoctorTests.sendMsgToPatient()[pri:2, instance:testingInNg.DoctorTests@7be1ce6a] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1507)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
